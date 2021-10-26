@@ -12,6 +12,6 @@ class <%= className %> extends \Magento\Framework\Model\ResourceModel\Db\Abstrac
      */
     protected function _construct()
     {
-        $this->_init('', 'id');
+        $this->_init('<%= moduleName.toLowerCase() %>_<%= className.toLowerCase() %>', 'id');
     }
 }
