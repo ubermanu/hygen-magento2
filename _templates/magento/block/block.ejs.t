@@ -7,5 +7,8 @@ namespace <%= moduleName.replace('_', '\\') %>\Block;
 
 class <%= className %> extends \Magento\Framework\View\Element\Template
 {
+    /**
+     * {@inheritdoc}
+     */
     protected $_template = '<%= moduleName %>::<%= h.toCamelCase(className) %>.phtml';
 }
