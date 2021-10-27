@@ -25,19 +25,22 @@ function toPascalCase(string) {
 }
 
 /**
- * @param {string} moduleName
+ * @param {string} string
  * @return {string}
  */
-function moduleNS(moduleName) {
-    return name.replace('_', '\\');
+function toKebabCase(string) {
+    return string
+        .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+        .map(x => x.toLowerCase())
+        .join('-');
 }
 
 /**
- * @param {string} moduleName
+ * @param {string} string
  * @return {string}
  */
-function modulePath(moduleName) {
-    return name.replace('_', '/');
+function toSnakeCase(string) {
+    return toKebabCase(string).replace('-', '_');
 }
 
 module.exports = {
@@ -45,7 +48,7 @@ module.exports = {
         upperFirst,
         toCamelCase,
         toPascalCase,
-        moduleNS,
-        modulePath,
+        toSnakeCase,
+        toKebabCase,
     }
 }

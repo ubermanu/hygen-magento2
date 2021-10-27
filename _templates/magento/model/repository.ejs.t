@@ -19,22 +19,22 @@ class <%= className %>Repository
     /**
      * @var <%= className %>Resource
      */
-    private $<%= h.toCamelCase(className) %>Resource;
+    protected $<%= h.toCamelCase(className) %>Resource;
 
     /**
      * @var <%= className %>Factory
      */
-    private $<%= h.toCamelCase(className) %>Factory;
+    protected $<%= h.toCamelCase(className) %>Factory;
 
     /**
      * @var CollectionFactory
      */
-    private $collectionFactory;
+    protected $collectionFactory;
 
     /**
-     * @var array
+     * @var <%= className %>[]
      */
-    private $cache = [];
+    protected $cache = [];
 
     public function __construct(
         <%= className %>Resource $<%= h.toCamelCase(className) %>Resource,
@@ -58,9 +58,14 @@ class <%= className %>Repository
             unset($this->cache[$<%= h.toCamelCase(className) %>->getId()]);
         } catch (\Exception $e) {
             if ($<%= h.toCamelCase(className) %>->getId()) {
-                throw new CouldNotSaveException(__('Unable to save <%= h.toCamelCase(className) %> with ID %1. Error: %2', [$<%= h.toCamelCase(className) %>->getId(), $e->getMessage()]));
+                throw new CouldNotSaveException(
+                    __(
+                        'Unable to save <%= h.toKebabCase(className).replace('-', ' ') %> with ID %1. Error: %2',
+                        [$<%= h.toCamelCase(className) %>->getId(), $e->getMessage()]
+                    )
+                );
             }
-            throw new CouldNotSaveException(__('Unable to save <%= h.toCamelCase(className) %>. Error: %1', $e->getMessage()));
+            throw new CouldNotSaveException(__('Unable to save <%= h.toKebabCase(className).replace('-', ' ') %>. Error: %1', $e->getMessage()));
         }
 
         return $<%= h.toCamelCase(className) %>;
@@ -77,7 +82,7 @@ class <%= className %>Repository
             $<%= h.toCamelCase(className) %> = $this-><%= h.toCamelCase(className) %>Factory->create();
             $this-><%= h.toCamelCase(className) %>Resource->load($<%= h.toCamelCase(className) %>, $id);
             if (!$<%= h.toCamelCase(className) %>->getId()) {
-                throw new NoSuchEntityException(__('<%= h.toCamelCase(className) %> with specified ID "%1" not found.', $id));
+                throw new NoSuchEntityException(__('<%= h.upperFirst(h.toKebabCase(className).replace('-', ' ')) %> with specified ID "%1" not found.', $id));
             }
 
             $this->cache[$id] = $<%= h.toCamelCase(className) %>;
@@ -98,9 +103,14 @@ class <%= className %>Repository
             $this-><%= h.toCamelCase(className) %>Resource->delete($<%= h.toCamelCase(className) %>);
         } catch (\Exception $e) {
             if ($<%= h.toCamelCase(className) %>->getId()) {
-                throw new CouldNotDeleteException(__('Unable to remove <%= h.toCamelCase(className) %> with ID %1. Error: %2', [$<%= h.toCamelCase(className) %>->getEntityId(), $e->getMessage()]));
+                throw new CouldNotDeleteException(
+                    __(
+                        'Unable to remove <%= h.toKebabCase(className).replace('-', ' ') %> with ID %1. Error: %2',
+                        [$<%= h.toCamelCase(className) %>->getEntityId(), $e->getMessage()]
+                    )
+                );
             }
-            throw new CouldNotDeleteException(__('Unable to remove <%= h.toCamelCase(className) %>. Error: %1', $e->getMessage()));
+            throw new CouldNotDeleteException(__('Unable to remove <%= h.toKebabCase(className).replace('-', ' ') %>. Error: %1', $e->getMessage()));
         }
 
         return true;
