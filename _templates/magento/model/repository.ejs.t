@@ -122,7 +122,6 @@ class <%= className %>Repository
      */
     public function deleteById(int $id)
     {
-        $<%= h.changeCase.camel(className) %> = $this->getById($id);
-        $this->delete($<%= h.changeCase.camel(className) %>);
+        return $this->delete($this->getById($id));
     }
 }
