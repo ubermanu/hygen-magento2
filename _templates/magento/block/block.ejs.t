@@ -10,5 +10,5 @@ class <%= className %> extends \Magento\Framework\View\Element\Template
     /**
      * {@inheritdoc}
      */
-    protected $_template = '<%= moduleName %>::<%= h.toCamelCase(className) %>.phtml';
+    protected $_template = '<%= moduleName %>::<%= h.changeCase.camel(className) %>.phtml';
 }
