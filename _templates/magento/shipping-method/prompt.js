@@ -1,4 +1,4 @@
-// TODO: Move to index.js
+name
 module.exports = [
     {
         type: 'input',
