@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= module.replace('_', '/') %>/Model/<%= className %>.php
+to: app/code/<%= module.replace('_', '/') %>/Model/<%= name %>.php
 inject: true
 after: class [^]*    }
 skip_if: protected \$<%= h.changeCase.camel(propertyName) %>

@@ -7,7 +7,7 @@ module.exports = [
     },
     {
         type: 'input',
-        name: 'className',
+        name: 'name',
         message: 'Name of the class?',
     }
 ]

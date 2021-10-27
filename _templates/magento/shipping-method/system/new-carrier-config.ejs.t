@@ -2,19 +2,19 @@
 to: app/code/<%= module.replace('_', '/') %>/etc/adminhtml/system.xml
 inject: true
 after: <section id="carriers".*>
-skip_if: <group id="<%= className.toLowerCase() %>".*>
+skip_if: <group id="<%= name.toLowerCase() %>".*>
 ---
-            <group id="<%= className.toLowerCase() %>" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label><%= className %></label>
+            <group id="<%= name.toLowerCase() %>" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label><%= name %></label>
                 <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label><%= className %></label>
+                    <label><%= name %></label>
                 </field>
                 <field id="name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label><%= className %></label>
+                    <label><%= name %></label>
                 </field>
                 <field id="shipping_cost" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0" >
                     <label>Shipping Cost</label>

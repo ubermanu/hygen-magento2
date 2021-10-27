@@ -2,16 +2,16 @@
 to: app/code/<%= module.replace('_', '/') %>/etc/adminhtml/system.xml
 inject: true
 after: <section id="payment".*>
-skip_if: <group id="<%= className.toLowerCase() %>".*>
+skip_if: <group id="<%= name.toLowerCase() %>".*>
 ---
-            <group id="<%= className.toLowerCase() %>" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label><%= className %></label>
+            <group id="<%= name.toLowerCase() %>" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label><%= name %></label>
                 <field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
                    <label>Enabled</label>
                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
-                   <label><%= className %></label>
+                   <label><%= name %></label>
                 </field>
                 <field id="order_status" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
                    <label>New Order Status</label>

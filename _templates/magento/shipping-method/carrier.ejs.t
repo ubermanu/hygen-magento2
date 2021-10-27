@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= module.replace('_', '/') %>/Model/Carrier/<%= className %>.php
+to: app/code/<%= module.replace('_', '/') %>/Model/Carrier/<%= name %>.php
 ---
 <?php
 
@@ -9,12 +9,12 @@ use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Carrier\AbstractCarrier;
 use Magento\Shipping\Model\Carrier\CarrierInterface;
 
-class <%= className %> extends AbstractCarrier implements CarrierInterface
+class <%= name %> extends AbstractCarrier implements CarrierInterface
 {
     /**
      * @var string
      */
-    protected $_code = '<%= className.toLowerCase() %>';
+    protected $_code = '<%= name.toLowerCase() %>';
 
     /**
      * @var bool

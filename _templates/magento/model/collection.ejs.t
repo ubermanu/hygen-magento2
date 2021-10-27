@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= module.replace('_', '/') %>/Model/ResourceModel/<%= className %>/Collection.php
+to: app/code/<%= module.replace('_', '/') %>/Model/ResourceModel/<%= name %>/Collection.php
 ---
 <?php
 
@@ -13,8 +13,8 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     protected function _construct()
     {
         $this->_init(
-            \<%= module.replace('_', '\\') %>\Model\<%= className %>::class,
-            \<%= module.replace('_', '\\') %>\Model\ResourceModel\<%= className %>::class
+            \<%= module.replace('_', '\\') %>\Model\<%= name %>::class,
+            \<%= module.replace('_', '\\') %>\Model\ResourceModel\<%= name %>::class
         );
     }
 }

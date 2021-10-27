@@ -18,10 +18,10 @@ to: app/code/<%= module.replace('_', '/') %>/view/frontend/layout/checkout_index
                                                     <item name="children" xsi:type="array">
                                                         <item name="renders" xsi:type="array">
                                                             <item name="children" xsi:type="array">
-                                                                <item name="<%= className.toLowerCase() %>" xsi:type="array">
-                                                                    <item name="component" xsi:type="string"><%= module %>/js/view/payment/<%= className.toLowerCase() %></item>
+                                                                <item name="<%= name.toLowerCase() %>" xsi:type="array">
+                                                                    <item name="component" xsi:type="string"><%= module %>/js/view/payment/<%= name.toLowerCase() %></item>
                                                                     <item name="methods" xsi:type="array">
-                                                                        <item name="<%= className.toLowerCase() %>" xsi:type="array">
+                                                                        <item name="<%= name.toLowerCase() %>" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
                                                                         </item>
                                                                     </item>

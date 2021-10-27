@@ -1,30 +1,30 @@
 ---
-to: app/code/<%= module.replace('_', '/') %>/Model/Repository/<%= className %>Repository.php
+to: app/code/<%= module.replace('_', '/') %>/Model/Repository/<%= name %>Repository.php
 ---
 <?php
 
 namespace <%= module.replace('_', '\\') %>\Model\Repository;
 
-use <%= module.replace('_', '\\') %>\Model\<%= className %>;
-use <%= module.replace('_', '\\') %>\Model\<%= className %>Factory;
-use <%= module.replace('_', '\\') %>\Model\ResourceModel\<%= className %> as <%= className %>Resource;
-use <%= module.replace('_', '\\') %>\Model\ResourceModel\<%= className %>\Collection;
-use <%= module.replace('_', '\\') %>\Model\ResourceModel\<%= className %>\CollectionFactory;
+use <%= module.replace('_', '\\') %>\Model\<%= name %>;
+use <%= module.replace('_', '\\') %>\Model\<%= name %>Factory;
+use <%= module.replace('_', '\\') %>\Model\ResourceModel\<%= name %> as <%= name %>Resource;
+use <%= module.replace('_', '\\') %>\Model\ResourceModel\<%= name %>\Collection;
+use <%= module.replace('_', '\\') %>\Model\ResourceModel\<%= name %>\CollectionFactory;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 
-class <%= className %>Repository
+class <%= name %>Repository
 {
     /**
-     * @var <%= className %>Resource
+     * @var <%= name %>Resource
      */
-    protected $<%= h.changeCase.camel(className) %>Resource;
+    protected $<%= h.changeCase.camel(name) %>Resource;
 
     /**
-     * @var <%= className %>Factory
+     * @var <%= name %>Factory
      */
-    protected $<%= h.changeCase.camel(className) %>Factory;
+    protected $<%= h.changeCase.camel(name) %>Factory;
 
     /**
      * @var CollectionFactory
@@ -32,85 +32,85 @@ class <%= className %>Repository
     protected $collectionFactory;
 
     /**
-     * @var <%= className %>[]
+     * @var <%= name %>[]
      */
     protected $cache = [];
 
     public function __construct(
-        <%= className %>Resource $<%= h.changeCase.camel(className) %>Resource,
-        <%= className %>Factory $<%= h.changeCase.camel(className) %>Factory,
+        <%= name %>Resource $<%= h.changeCase.camel(name) %>Resource,
+        <%= name %>Factory $<%= h.changeCase.camel(name) %>Factory,
         CollectionFactory $collectionFactory
     ) {
-        $this-><%= h.changeCase.camel(className) %>Resource = $<%= h.changeCase.camel(className) %>Resource;
-        $this-><%= h.changeCase.camel(className) %>Factory = $<%= h.changeCase.camel(className) %>Factory;
+        $this-><%= h.changeCase.camel(name) %>Resource = $<%= h.changeCase.camel(name) %>Resource;
+        $this-><%= h.changeCase.camel(name) %>Factory = $<%= h.changeCase.camel(name) %>Factory;
         $this->collectionFactory = $collectionFactory;
     }
 
     /**
-     * @param <%= className %> $<%= h.changeCase.camel(className) %>
-     * @return <%= className %>
+     * @param <%= name %> $<%= h.changeCase.camel(name) %>
+     * @return <%= name %>
      * @throws CouldNotSaveException
      */
-    public function save(<%= className %> $<%= h.changeCase.camel(className) %>)
+    public function save(<%= name %> $<%= h.changeCase.camel(name) %>)
     {
         try {
-            $this-><%= h.changeCase.camel(className) %>Resource->save($<%= h.changeCase.camel(className) %>);
-            unset($this->cache[$<%= h.changeCase.camel(className) %>->getId()]);
+            $this-><%= h.changeCase.camel(name) %>Resource->save($<%= h.changeCase.camel(name) %>);
+            unset($this->cache[$<%= h.changeCase.camel(name) %>->getId()]);
         } catch (\Exception $e) {
-            if ($<%= h.changeCase.camel(className) %>->getId()) {
+            if ($<%= h.changeCase.camel(name) %>->getId()) {
                 throw new CouldNotSaveException(
                     __(
-                        'Unable to save <%= h.changeCase.kebab(className).replace('-', ' ') %> with ID %1. Error: %2',
-                        [$<%= h.changeCase.camel(className) %>->getId(), $e->getMessage()]
+                        'Unable to save <%= h.changeCase.kebab(name).replace('-', ' ') %> with ID %1. Error: %2',
+                        [$<%= h.changeCase.camel(name) %>->getId(), $e->getMessage()]
                     )
                 );
             }
-            throw new CouldNotSaveException(__('Unable to save <%= h.changeCase.kebab(className).replace('-', ' ') %>. Error: %1', $e->getMessage()));
+            throw new CouldNotSaveException(__('Unable to save <%= h.changeCase.kebab(name).replace('-', ' ') %>. Error: %1', $e->getMessage()));
         }
 
-        return $<%= h.changeCase.camel(className) %>;
+        return $<%= h.changeCase.camel(name) %>;
     }
 
     /**
      * @param int $id
-     * @return <%= className %>
+     * @return <%= name %>
      * @throws NoSuchEntityException
      */
     public function getById(int $id)
     {
         if (!array_key_exists($id, $this->cache)) {
-            $<%= h.changeCase.camel(className) %> = $this-><%= h.changeCase.camel(className) %>Factory->create();
-            $this-><%= h.changeCase.camel(className) %>Resource->load($<%= h.changeCase.camel(className) %>, $id);
-            if (!$<%= h.changeCase.camel(className) %>->getId()) {
-                throw new NoSuchEntityException(__('<%= h.changeCase.ucFirst(h.changeCase.kebab(className).replace('-', ' ')) %> with specified ID "%1" not found.', $id));
+            $<%= h.changeCase.camel(name) %> = $this-><%= h.changeCase.camel(name) %>Factory->create();
+            $this-><%= h.changeCase.camel(name) %>Resource->load($<%= h.changeCase.camel(name) %>, $id);
+            if (!$<%= h.changeCase.camel(name) %>->getId()) {
+                throw new NoSuchEntityException(__('<%= h.changeCase.ucFirst(h.changeCase.kebab(name).replace('-', ' ')) %> with specified ID "%1" not found.', $id));
             }
 
-            $this->cache[$id] = $<%= h.changeCase.camel(className) %>;
+            $this->cache[$id] = $<%= h.changeCase.camel(name) %>;
         }
 
         return $this->cache[$id];
     }
 
     /**
-     * @param <%= className %> $<%= h.changeCase.camel(className) %>
+     * @param <%= name %> $<%= h.changeCase.camel(name) %>
      * @return bool
      * @throws CouldNotDeleteException
      */
-    public function delete(<%= className %> $<%= h.changeCase.camel(className) %>)
+    public function delete(<%= name %> $<%= h.changeCase.camel(name) %>)
     {
         try {
-            unset($this->cache[$<%= h.changeCase.camel(className) %>->getId()]);
-            $this-><%= h.changeCase.camel(className) %>Resource->delete($<%= h.changeCase.camel(className) %>);
+            unset($this->cache[$<%= h.changeCase.camel(name) %>->getId()]);
+            $this-><%= h.changeCase.camel(name) %>Resource->delete($<%= h.changeCase.camel(name) %>);
         } catch (\Exception $e) {
-            if ($<%= h.changeCase.camel(className) %>->getId()) {
+            if ($<%= h.changeCase.camel(name) %>->getId()) {
                 throw new CouldNotDeleteException(
                     __(
-                        'Unable to remove <%= h.changeCase.kebab(className).replace('-', ' ') %> with ID %1. Error: %2',
-                        [$<%= h.changeCase.camel(className) %>->getEntityId(), $e->getMessage()]
+                        'Unable to remove <%= h.changeCase.kebab(name).replace('-', ' ') %> with ID %1. Error: %2',
+                        [$<%= h.changeCase.camel(name) %>->getEntityId(), $e->getMessage()]
                     )
                 );
             }
-            throw new CouldNotDeleteException(__('Unable to remove <%= h.changeCase.kebab(className).replace('-', ' ') %>. Error: %1', $e->getMessage()));
+            throw new CouldNotDeleteException(__('Unable to remove <%= h.changeCase.kebab(name).replace('-', ' ') %>. Error: %1', $e->getMessage()));
         }
 
         return true;

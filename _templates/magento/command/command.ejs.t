@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= module.replace('_', '/') %>/Console/Command/<%= className %>.php
+to: app/code/<%= module.replace('_', '/') %>/Console/Command/<%= name %>.php
 ---
 <?php
 
@@ -9,14 +9,14 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class <%= className %> extends Command
+class <%= name %> extends Command
 {
     /**
      * {@inheritdoc}
      */
     protected function configure()
     {
-        $this->setName('<%= module.toLowerCase() %>:<%= className.toLowerCase() %>');
+        $this->setName('<%= module.toLowerCase() %>:<%= name.toLowerCase() %>');
         parent::configure();
     }
 

@@ -1,14 +1,14 @@
 ---
-to: app/code/<%= module.replace('_', '/') %>/Block/<%= className %>.php
+to: app/code/<%= module.replace('_', '/') %>/Block/<%= name %>.php
 ---
 <?php
 
 namespace <%= module.replace('_', '\\') %>\Block;
 
-class <%= className %> extends \Magento\Framework\View\Element\Template
+class <%= name %> extends \Magento\Framework\View\Element\Template
 {
     /**
      * {@inheritdoc}
      */
-    protected $_template = '<%= module %>::<%= h.changeCase.camel(className) %>.phtml';
+    protected $_template = '<%= module %>::<%= h.changeCase.camel(name) %>.phtml';
 }
