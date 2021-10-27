@@ -82,7 +82,7 @@ class <%= className %>Repository
             $<%= h.changeCase.camel(className) %> = $this-><%= h.changeCase.camel(className) %>Factory->create();
             $this-><%= h.changeCase.camel(className) %>Resource->load($<%= h.changeCase.camel(className) %>, $id);
             if (!$<%= h.changeCase.camel(className) %>->getId()) {
-                throw new NoSuchEntityException(__('<%= h.upperFirst(h.changeCase.kebab(className).replace('-', ' ')) %> with specified ID "%1" not found.', $id));
+                throw new NoSuchEntityException(__('<%= h.changeCase.ucFirst(h.changeCase.kebab(className).replace('-', ' ')) %> with specified ID "%1" not found.', $id));
             }
 
             $this->cache[$id] = $<%= h.changeCase.camel(className) %>;
