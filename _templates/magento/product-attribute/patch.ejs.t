@@ -1,9 +1,9 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/Setup/Patch/Data/Add<%= h.changeCase.pascal(attributeName) %>ProductAttribute.php
+to: app/code/<%= module.replace('_', '/') %>/Setup/Patch/Data/Add<%= h.changeCase.pascal(attributeName) %>ProductAttribute.php
 ---
 <?php
 
-namespace <%= moduleName.replace('_', '\\') %>\Setup\Patch\Data;
+namespace <%= module.replace('_', '\\') %>\Setup\Patch\Data;
 
 use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 use Magento\Eav\Setup\EavSetup;

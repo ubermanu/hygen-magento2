@@ -1,13 +1,13 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/Model/ResourceModel/<%= className %>.php
+to: app/code/<%= module.replace('_', '/') %>/Model/ResourceModel/<%= className %>.php
 ---
 <?php
 
-namespace <%= moduleName.replace('_', '\\') %>\Model\ResourceModel;
+namespace <%= module.replace('_', '\\') %>\Model\ResourceModel;
 
 class <%= className %> extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
-    const TABLE_NAME = '<%= moduleName.toLowerCase() %>_<%= className.toLowerCase() %>';
+    const TABLE_NAME = '<%= module.toLowerCase() %>_<%= className.toLowerCase() %>';
 
     /**
      * {@inheritdoc}

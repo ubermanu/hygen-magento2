@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/view/frontend/web/js/view/payment/method-renderer/<%= className.toLowerCase() %>-method.js
+to: app/code/<%= module.replace('_', '/') %>/view/frontend/web/js/view/payment/method-renderer/<%= className.toLowerCase() %>-method.js
 ---
 define([
     'Magento_Checkout/js/view/payment/default'
@@ -9,7 +9,7 @@ define([
     'use strict';
     return Component.extend({
         defaults: {
-            template: '<%= moduleName %>/payment/<%= className.toLowerCase() %>'
+            template: '<%= module %>/payment/<%= className.toLowerCase() %>'
         },
         getMailingAddress: function () {
             return window.checkoutConfig.payment.checkmo.mailingAddress;

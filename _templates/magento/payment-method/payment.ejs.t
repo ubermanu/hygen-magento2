@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/etc/payment.xml
+to: app/code/<%= module.replace('_', '/') %>/etc/payment.xml
 unless_exists: true
 ---
 <payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

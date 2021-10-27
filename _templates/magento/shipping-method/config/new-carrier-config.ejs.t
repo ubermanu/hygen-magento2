@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/etc/config.xml
+to: app/code/<%= module.replace('_', '/') %>/etc/config.xml
 inject: true
 before: </carriers>
 skip_if: <<%= className.toLowerCase() %>>
@@ -11,5 +11,5 @@ skip_if: <<%= className.toLowerCase() %>>
                 <shipping_cost>10</shipping_cost>
                 <sallowspecific>0</sallowspecific>
                 <sort_order>15</sort_order>
-                <model><%= moduleName.replace('_', '\\') %>\Model\Carrier\<%= className %></model>
+                <model><%= module.replace('_', '\\') %>\Model\Carrier\<%= className %></model>
             </<%= className.toLowerCase() %>>

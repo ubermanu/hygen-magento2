@@ -1,9 +1,9 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/Console/Command/<%= className %>.php
+to: app/code/<%= module.replace('_', '/') %>/Console/Command/<%= className %>.php
 ---
 <?php
 
-namespace <%= moduleName.replace('_', '\\') %>\Console\Command;
+namespace <%= module.replace('_', '\\') %>\Console\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -16,7 +16,7 @@ class <%= className %> extends Command
      */
     protected function configure()
     {
-        $this->setName('<%= moduleName.toLowerCase() %>:<%= className.toLowerCase() %>');
+        $this->setName('<%= module.toLowerCase() %>:<%= className.toLowerCase() %>');
         parent::configure();
     }
 

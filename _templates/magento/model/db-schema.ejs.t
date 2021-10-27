@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/etc/db_schema.xml
+to: app/code/<%= module.replace('_', '/') %>/etc/db_schema.xml
 unless_exists: true
 ---
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

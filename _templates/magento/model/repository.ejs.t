@@ -1,15 +1,15 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/Model/Repository/<%= className %>Repository.php
+to: app/code/<%= module.replace('_', '/') %>/Model/Repository/<%= className %>Repository.php
 ---
 <?php
 
-namespace <%= moduleName.replace('_', '\\') %>\Model\Repository;
+namespace <%= module.replace('_', '\\') %>\Model\Repository;
 
-use <%= moduleName.replace('_', '\\') %>\Model\<%= className %>;
-use <%= moduleName.replace('_', '\\') %>\Model\<%= className %>Factory;
-use <%= moduleName.replace('_', '\\') %>\Model\ResourceModel\<%= className %> as <%= className %>Resource;
-use <%= moduleName.replace('_', '\\') %>\Model\ResourceModel\<%= className %>\Collection;
-use <%= moduleName.replace('_', '\\') %>\Model\ResourceModel\<%= className %>\CollectionFactory;
+use <%= module.replace('_', '\\') %>\Model\<%= className %>;
+use <%= module.replace('_', '\\') %>\Model\<%= className %>Factory;
+use <%= module.replace('_', '\\') %>\Model\ResourceModel\<%= className %> as <%= className %>Resource;
+use <%= module.replace('_', '\\') %>\Model\ResourceModel\<%= className %>\Collection;
+use <%= module.replace('_', '\\') %>\Model\ResourceModel\<%= className %>\CollectionFactory;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;

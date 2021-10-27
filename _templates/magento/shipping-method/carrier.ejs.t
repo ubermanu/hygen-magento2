@@ -1,9 +1,9 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/Model/Carrier/<%= className %>.php
+to: app/code/<%= module.replace('_', '/') %>/Model/Carrier/<%= className %>.php
 ---
 <?php
 
-namespace <%= moduleName.replace('_', '\\') %>\Model\Carrier;
+namespace <%= module.replace('_', '\\') %>\Model\Carrier;
 
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Carrier\AbstractCarrier;

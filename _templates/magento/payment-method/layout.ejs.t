@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/view/frontend/layout/checkout_index_index.xml
+to: app/code/<%= module.replace('_', '/') %>/view/frontend/layout/checkout_index_index.xml
 ---
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
@@ -19,7 +19,7 @@ to: app/code/<%= moduleName.replace('_', '/') %>/view/frontend/layout/checkout_i
                                                         <item name="renders" xsi:type="array">
                                                             <item name="children" xsi:type="array">
                                                                 <item name="<%= className.toLowerCase() %>" xsi:type="array">
-                                                                    <item name="component" xsi:type="string"><%= moduleName %>/js/view/payment/<%= className.toLowerCase() %></item>
+                                                                    <item name="component" xsi:type="string"><%= module %>/js/view/payment/<%= className.toLowerCase() %></item>
                                                                     <item name="methods" xsi:type="array">
                                                                         <item name="<%= className.toLowerCase() %>" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">true</item>

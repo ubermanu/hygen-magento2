@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/etc/frontend/routes.xml
+to: app/code/<%= module.replace('_', '/') %>/etc/frontend/routes.xml
 unless_exists: true
 ---
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

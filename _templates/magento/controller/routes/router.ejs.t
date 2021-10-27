@@ -1,11 +1,11 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/etc/frontend/routes.xml
+to: app/code/<%= module.replace('_', '/') %>/etc/frontend/routes.xml
 inject: true
 before: </config>
-skip_if: id="<%= moduleName.toLowerCase() %>"
+skip_if: id="<%= module.toLowerCase() %>"
 ---
     <router id="standard">
-        <route id="<%= moduleName.toLowerCase() %>" frontName="<%= moduleName.toLowerCase() %>">
-            <module name="<%= moduleName %>"/>
+        <route id="<%= module.toLowerCase() %>" frontName="<%= module.toLowerCase() %>">
+            <module name="<%= module %>"/>
         </route>
     </router>

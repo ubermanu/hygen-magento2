@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/view/frontend/web/js/view/payment/<%= className.toLowerCase() %>.js
+to: app/code/<%= module.replace('_', '/') %>/view/frontend/web/js/view/payment/<%= className.toLowerCase() %>.js
 ---
 define([
     'uiComponent',
@@ -12,7 +12,7 @@ define([
     rendererList.push(
         {
             type: '<%= className.toLowerCase() %>',
-            component: '<%= moduleName %>/js/view/payment/method-renderer/<%= className.toLowerCase() %>-method'
+            component: '<%= module %>/js/view/payment/method-renderer/<%= className.toLowerCase() %>-method'
         }
     );
     return Component.extend({});

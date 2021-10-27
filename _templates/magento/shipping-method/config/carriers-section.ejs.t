@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/etc/config.xml
+to: app/code/<%= module.replace('_', '/') %>/etc/config.xml
 inject: true
 before: </default>
 skip_if: <carriers>

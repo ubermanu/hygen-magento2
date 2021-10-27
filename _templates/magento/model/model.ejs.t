@@ -1,9 +1,9 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/Model/<%= className %>.php
+to: app/code/<%= module.replace('_', '/') %>/Model/<%= className %>.php
 ---
 <?php
 
-namespace <%= moduleName.replace('_', '\\') %>\Model;
+namespace <%= module.replace('_', '\\') %>\Model;
 
 class <%= className %> extends \Magento\Framework\Model\AbstractModel
 {
@@ -12,6 +12,6 @@ class <%= className %> extends \Magento\Framework\Model\AbstractModel
      */
     protected function _construct()
     {
-        $this->_init(\<%= moduleName.replace('_', '\\') %>\Model\ResourceModel\<%= className %>::class);
+        $this->_init(\<%= module.replace('_', '\\') %>\Model\ResourceModel\<%= className %>::class);
     }
 }

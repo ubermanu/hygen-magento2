@@ -1,9 +1,9 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/Controller/<%= sectionName %>/<%= actionName %>.php
+to: app/code/<%= module.replace('_', '/') %>/Controller/<%= sectionName %>/<%= actionName %>.php
 ---
 <?php
 
-namespace <%= moduleName.replace('_', '\\') %>\Controller\<%= sectionName %>;
+namespace <%= module.replace('_', '\\') %>\Controller\<%= sectionName %>;
 
 class <%= actionName %> extends \Magento\Framework\App\Action\Action
 {

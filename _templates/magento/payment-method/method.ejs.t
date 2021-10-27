@@ -1,9 +1,9 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/Model/Method/<%= className %>.php
+to: app/code/<%= module.replace('_', '/') %>/Model/Method/<%= className %>.php
 ---
 <?php
 
-namespace <%= moduleName.replace('_', '\\') %>\Model\Method;
+namespace <%= module.replace('_', '\\') %>\Model\Method;
 
 class <%= className %> extends \Magento\Payment\Model\Method\AbstractMethod
 {

@@ -1,9 +1,9 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/Helper/<%= className %>.php
+to: app/code/<%= module.replace('_', '/') %>/Helper/<%= className %>.php
 ---
 <?php
 
-namespace <%= moduleName.replace('_', '\\') %>\Helper;
+namespace <%= module.replace('_', '\\') %>\Helper;
 
 class <%= className %> extends \Magento\Framework\App\Helper\AbstractHelper
 {

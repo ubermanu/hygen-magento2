@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/etc/adminhtml/system.xml
+to: app/code/<%= module.replace('_', '/') %>/etc/adminhtml/system.xml
 inject: true
 after: <section id="carriers".*>
 skip_if: <group id="<%= className.toLowerCase() %>".*>

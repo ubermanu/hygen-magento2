@@ -1,9 +1,9 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/Model/ResourceModel/<%= className %>/Collection.php
+to: app/code/<%= module.replace('_', '/') %>/Model/ResourceModel/<%= className %>/Collection.php
 ---
 <?php
 
-namespace <%= moduleName.replace('_', '\\') %>\Model\ResourceModel;
+namespace <%= module.replace('_', '\\') %>\Model\ResourceModel;
 
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
@@ -13,8 +13,8 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     protected function _construct()
     {
         $this->_init(
-            \<%= moduleName.replace('_', '\\') %>\Model\<%= className %>::class,
-            \<%= moduleName.replace('_', '\\') %>\Model\ResourceModel\<%= className %>::class
+            \<%= module.replace('_', '\\') %>\Model\<%= className %>::class,
+            \<%= module.replace('_', '\\') %>\Model\ResourceModel\<%= className %>::class
         );
     }
 }

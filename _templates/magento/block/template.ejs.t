@@ -1,6 +1,6 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/view/frontend/templates/<%= h.changeCase.camel(className) %>.phtml
+to: app/code/<%= module.replace('_', '/') %>/view/frontend/templates/<%= h.changeCase.camel(className) %>.phtml
 ---
 <?php
-/** @var \<%= moduleName.replace('_', '\\') %>\Block\<%= className %> $block */
+/** @var \<%= module.replace('_', '\\') %>\Block\<%= className %> $block */
 ?>

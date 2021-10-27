@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/etc/payment.xml
+to: app/code/<%= module.replace('_', '/') %>/etc/payment.xml
 inject: true
 before: </methods>
 skip_if: <method name="<%= className.toLowerCase() %>">

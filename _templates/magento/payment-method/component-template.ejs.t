@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/view/frontend/web/template/payment/<%= className.toLowerCase() %>.html
+to: app/code/<%= module.replace('_', '/') %>/view/frontend/web/template/payment/<%= className.toLowerCase() %>.html
 ---
 <div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
     <div class="payment-method-title field choice">

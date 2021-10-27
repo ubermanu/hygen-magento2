@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= moduleName.replace('_', '/') %>/Model/<%= className %>.php
+to: app/code/<%= module.replace('_', '/') %>/Model/<%= className %>.php
 inject: true
 after: const [^?/]*;|class [^]*\n{
 skip_if: const <%= h.changeCase.upper(h.changeCase.snake(propertyName)) %>
