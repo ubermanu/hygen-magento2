@@ -19,5 +19,10 @@ module.exports = [
         type: 'input',
         name: 'propertyType',
         message: 'Type of the property?',
+    },
+    {
+        type: 'input',
+        name: 'defaultValue',
+        message: 'Default value of this property?',
     }
 ]

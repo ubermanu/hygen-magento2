@@ -1,6 +1,6 @@
 ---
 to: app/code/<%= moduleName.replace('_', '/') %>/etc/db_schema.xml
 inject: true
-after: <table name="<%= moduleName.toLowerCase() %>_<%= className.toLowerCase() %>" resource="default">
+after: <table(.*)name="<%= moduleName.toLowerCase() %>_<%= className.toLowerCase() %>"(.*)>
 ---
-        <column name="<%= h.changeCase.snake(propertyName) %>" nullable="false" xsi:type="varchar" length="255"/>
+        <column name="<%= h.changeCase.snake(propertyName) %>" nullable="true" xsi:type="text" default="<%= defaultValue %>"/>
