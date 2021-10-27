@@ -2,7 +2,7 @@
 module.exports = [
     {
         type: 'input',
-        name: 'module',
+        name: 'name',
         message: "What's your module name? (ex: Vendor_Package)"
     }
 ]
