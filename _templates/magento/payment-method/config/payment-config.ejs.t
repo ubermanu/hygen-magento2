@@ -6,7 +6,7 @@ skip_if: <<%= className.toLowerCase() %>>
 ---
             <<%= className.toLowerCase() %>>
                 <active>1</active>
-                <model><%= moduleName.replace('_', '\\') %>\Model\Payment\<%= className %></model>
+                <model><%= moduleName.replace('_', '\\') %>\Model\Method\<%= className %></model>
                 <order_status>pending</order_status>
                 <title><%= className.toLowerCase() %></title>
                 <allowspecific>0</allowspecific>
