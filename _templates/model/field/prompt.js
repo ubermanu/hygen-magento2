@@ -16,7 +16,7 @@ module.exports = [
     },
     {
         type: 'select',
-        name: 'propertyType',
+        name: 'columnType',
         message: 'Type of the column?',
         choices: [
             { message: 'Text', value: 'text' },
