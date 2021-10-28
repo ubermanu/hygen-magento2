@@ -1,10 +1,10 @@
 ---
-to: app/code/<%= module.replace('_', '/') %>/Plugin/<%= name.split('\\').join('/') %>Plugin.php
+to: app/code/<%= module.replace('_', '/') %>/Plugin/<%= fqdn.split('\\').join('/') %>Plugin.php
 ---
 <?php
 
-namespace <%= module.replace('_', '\\') %>\Plugin\<%= name.split('\\').slice(0, -1).join('\\') %>;
+namespace <%= module.replace('_', '\\') %>\Plugin\<%= fqdn.split('\\').slice(0, -1).join('\\') %>;
 
-class <%= name.split('\\').pop() %>Plugin
+class <%= fqdn.split('\\').pop() %>Plugin
 {
 }
