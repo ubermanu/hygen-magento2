@@ -36,6 +36,11 @@ class <%= name %>Repository
      */
     protected $cache = [];
 
+    /**
+     * <%= name %>Resource $<%= h.changeCase.camel(name) %>Resource
+     * <%= name %>Factory $<%= h.changeCase.camel(name) %>Factory
+     * CollectionFactory $collectionFactory
+     */
     public function __construct(
         <%= name %>Resource $<%= h.changeCase.camel(name) %>Resource,
         <%= name %>Factory $<%= h.changeCase.camel(name) %>Factory,
