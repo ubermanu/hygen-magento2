@@ -1,23 +1,23 @@
 ---
-to: app/code/<%= module.replace('_', '/') %>/Model/<%= name %>.php
+to: app/code/<%= module.replace('_', '/') %>/Model/<%= model %>.php
 inject: true
 after: class [^]*    }
-skip_if: protected \$<%= h.changeCase.camel(propertyName) %>
+skip_if: public function get<%= h.changeCase.pascal(name) %>\(\)
 ---
 
     /**
-     * @return <%= propertyType %>
+     * @return string|null
      */
-    public function get<%= h.changeCase.pascal(propertyName) %>()
+    public function get<%= h.changeCase.pascal(name) %>()
     {
-        return $this->getData(self::<%= h.changeCase.upper(h.changeCase.snake(propertyName)) %>);
+        return $this->getData(self::<%= h.changeCase.upper(h.changeCase.snake(name)) %>);
     }
 
     /**
-     * @param <%= propertyType %> $<%= h.changeCase.camel(propertyName) %>
+     * @param string|null $<%= h.changeCase.camel(name) %>
      * @return $this
      */
-    public function set<%= h.changeCase.pascal(propertyName) %>($<%= h.changeCase.camel(propertyName) %>)
+    public function set<%= h.changeCase.pascal(name) %>($<%= h.changeCase.camel(name) %>)
     {
-        return $this->setData(self::<%= h.changeCase.upper(h.changeCase.snake(propertyName)) %>, $<%= h.changeCase.camel(propertyName) %>);
+        return $this->setData(self::<%= h.changeCase.upper(h.changeCase.snake(name)) %>, $<%= h.changeCase.camel(name) %>);
     }
