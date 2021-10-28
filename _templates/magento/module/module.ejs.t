@@ -1,7 +1,7 @@
 ---
-to: app/code/<%= module.replace('_', '/') %>/etc/module.xml
+to: app/code/<%= name.replace('_', '/') %>/etc/module.xml
+inject: true
+before: </config>
+skip_if: <module name="<%= name %>".*>
 ---
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="<%= module %>"/>
-</config>
+    <module name="<%= name %>" setup_version="<%= version %>"/>
