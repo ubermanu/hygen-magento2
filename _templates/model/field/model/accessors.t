@@ -2,11 +2,11 @@
 to: app/code/<%= module.replace('_', '/') %>/Model/<%= model %>.php
 inject: true
 after: class [^]*    }
-skip_if: public function get<%= h.changeCase.pascal(name) %>\(\)
+skip_if: public function .*<%= h.changeCase.pascal(name) %>\(\)
 ---
 
     /**
-     * @return string|null
+     * {@inheritdoc}
      */
     public function get<%= h.changeCase.pascal(name) %>()
     {
@@ -14,8 +14,7 @@ skip_if: public function get<%= h.changeCase.pascal(name) %>\(\)
     }
 
     /**
-     * @param string|null $<%= h.changeCase.camel(name) %>
-     * @return $this
+     * {@inheritdoc}
      */
     public function set<%= h.changeCase.pascal(name) %>($<%= h.changeCase.camel(name) %>)
     {
