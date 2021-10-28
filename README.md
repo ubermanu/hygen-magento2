@@ -15,3 +15,11 @@ Create the skeleton of a module:
 Add a new shipping method:
 
     hygen shipping-method new --module Vendor_Example --name FreeShipping
+
+Create a new model:
+
+    hygen model new --module Vendor_Example --name Blog
+
+Add a field to this model:
+
+    hygen model field --module Vendor_Example --model Blog --name title
