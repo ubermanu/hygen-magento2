@@ -1,9 +1,13 @@
 ---
 to: app/code/<%= module.replace('_', '/') %>/etc/config.xml
-unless_exists: true
+inject: true
+before: </payment>
+skip_if: <<%= name.toLowerCase() %>>
 ---
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
-    <default>
-    </default>
-</config>
+            <<%= name.toLowerCase() %>>
+                <active>1</active>
+                <model><%= module.replace('_', '\\') %>\Model\Method\<%= name %></model>
+                <order_status>pending</order_status>
+                <title><%= name.toLowerCase() %></title>
+                <allowspecific>0</allowspecific>
+            </<%= name.toLowerCase() %>>
