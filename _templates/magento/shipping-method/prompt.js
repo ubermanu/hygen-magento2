@@ -1,4 +1,3 @@
-name
 module.exports = [
     {
         type: 'input',

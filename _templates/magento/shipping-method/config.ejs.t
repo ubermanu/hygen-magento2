@@ -1,9 +1,15 @@
 ---
 to: app/code/<%= module.replace('_', '/') %>/etc/config.xml
-unless_exists: true
+inject: true
+before: </carriers>
+skip_if: <<%= name.toLowerCase() %>>
 ---
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
-    <default>
-    </default>
-</config>
+            <<%= name.toLowerCase() %>>
+                <active>0</active>
+                <title><%= name %></title>
+                <name><%= name %></name>
+                <shipping_cost>10</shipping_cost>
+                <sallowspecific>0</sallowspecific>
+                <sort_order>15</sort_order>
+                <model><%= module.replace('_', '\\') %>\Model\Carrier\<%= name %></model>
+            </<%= name.toLowerCase() %>>
