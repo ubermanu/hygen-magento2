@@ -1,5 +1,5 @@
 ---
-to: app/code/<%= module.replace('_', '/') %>/Setup/Patch/Data/Add<%= h.changeCase.pascal(attributeName) %>ProductAttribute.php
+to: app/code/<%= module.replace('_', '/') %>/Setup/Patch/Data/Add<%= h.changeCase.pascal(name) %>ProductAttribute.php
 ---
 <?php
 
@@ -12,7 +12,7 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\Patch\PatchRevertableInterface;
 
-class Add<%= h.changeCase.pascal(attributeName) %>ProductAttribute implements DataPatchInterface, PatchRevertableInterface
+class Add<%= h.changeCase.pascal(name) %>ProductAttribute implements DataPatchInterface, PatchRevertableInterface
 {
     /**
      * @var ModuleDataSetupInterface
@@ -47,11 +47,11 @@ class Add<%= h.changeCase.pascal(attributeName) %>ProductAttribute implements Da
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
         $eavSetup->addAttribute(
             \Magento\Catalog\Model\Product::ENTITY,
-            '<%= h.changeCase.snake(attributeName) %>',
+            '<%= h.changeCase.snake(name) %>',
             [
-                'label' => '<%= h.changeCase.ucFirst(h.changeCase.kebab(attributeName).replace('-', ' ')) %>',
-                'type' => '<%= attributeType %>',
-                'input' => '<%= attributeInput %>',
+                'label' => '<%= h.changeCase.ucFirst(h.changeCase.kebab(name).replace('-', ' ')) %>',
+                'type' => '<%= type %>',
+                'input' => '<%= input %>',
                 'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
                 'group' => 'General',
                 'visible' => true,
@@ -86,7 +86,7 @@ class Add<%= h.changeCase.pascal(attributeName) %>ProductAttribute implements Da
 
         /** @var EavSetup $eavSetup */
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
-        $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, '<%= h.changeCase.snake(attributeName) %>');
+        $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, '<%= h.changeCase.snake(name) %>');
 
         $this->moduleDataSetup->getConnection()->endSetup();
     }

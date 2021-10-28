@@ -6,17 +6,17 @@ module.exports = [
     },
     {
         type: 'input',
-        name: 'attributeName',
+        name: 'name',
         message: 'Name of the attribute?',
     },
     {
         type: 'input',
-        name: 'attributeType',
+        name: 'type',
         message: 'Type of the attribute?',
     },
     {
         type: 'input',
-        name: 'attributeInput',
+        name: 'input',
         message: 'Frontend input of the attribute?',
     }
 ]
