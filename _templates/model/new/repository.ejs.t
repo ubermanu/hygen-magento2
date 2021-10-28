@@ -5,6 +5,7 @@ to: app/code/<%= module.replace('_', '/') %>/Model/Repository/<%= name %>Reposit
 
 namespace <%= module.replace('_', '\\') %>\Model\Repository;
 
+use <%= module.replace('_', '\\') %>\Api\Data\<%= name %>Interface;
 use <%= module.replace('_', '\\') %>\Model\<%= name %>;
 use <%= module.replace('_', '\\') %>\Model\<%= name %>Factory;
 use <%= module.replace('_', '\\') %>\Model\ResourceModel\<%= name %> as <%= name %>Resource;
@@ -14,7 +15,7 @@ use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 
-class <%= name %>Repository
+class <%= name %>Repository implements \<%= module.replace('_', '\\') %>\Api\<%= name %>RepositoryInterface
 {
     /**
      * @var <%= name %>Resource
@@ -37,9 +38,9 @@ class <%= name %>Repository
     protected $cache = [];
 
     /**
-     * <%= name %>Resource $<%= h.changeCase.camel(name) %>Resource
-     * <%= name %>Factory $<%= h.changeCase.camel(name) %>Factory
-     * CollectionFactory $collectionFactory
+     * @param <%= name %>Resource $<%= h.changeCase.camel(name) %>Resource
+     * @param <%= name %>Factory $<%= h.changeCase.camel(name) %>Factory
+     * @param CollectionFactory $collectionFactory
      */
     public function __construct(
         <%= name %>Resource $<%= h.changeCase.camel(name) %>Resource,
@@ -52,11 +53,9 @@ class <%= name %>Repository
     }
 
     /**
-     * @param <%= name %> $<%= h.changeCase.camel(name) %>
-     * @return <%= name %>
-     * @throws CouldNotSaveException
+     * {@inheritdoc}
      */
-    public function save(<%= name %> $<%= h.changeCase.camel(name) %>)
+    public function save(<%= name %>Interface $<%= h.changeCase.camel(name) %>)
     {
         try {
             $this-><%= h.changeCase.camel(name) %>Resource->save($<%= h.changeCase.camel(name) %>);
@@ -77,9 +76,7 @@ class <%= name %>Repository
     }
 
     /**
-     * @param int $id
-     * @return <%= name %>
-     * @throws NoSuchEntityException
+     * {@inheritdoc}
      */
     public function getById(int $id)
     {
@@ -97,11 +94,9 @@ class <%= name %>Repository
     }
 
     /**
-     * @param <%= name %> $<%= h.changeCase.camel(name) %>
-     * @return bool
-     * @throws CouldNotDeleteException
+     * {@inheritdoc}
      */
-    public function delete(<%= name %> $<%= h.changeCase.camel(name) %>)
+    public function delete(<%= name %>Interface $<%= h.changeCase.camel(name) %>)
     {
         try {
             unset($this->cache[$<%= h.changeCase.camel(name) %>->getId()]);
@@ -122,8 +117,7 @@ class <%= name %>Repository
     }
 
     /**
-     * @return bool
-     * @throws CouldNotDeleteException
+     * {@inheritdoc}
      */
     public function deleteById(int $id)
     {
