@@ -5,7 +5,9 @@ to: app/code/<%= module.replace('_', '/') %>/Model/<%= name %>.php
 
 namespace <%= module.replace('_', '\\') %>\Model;
 
-class <%= name %> extends \Magento\Framework\Model\AbstractModel
+use <%= module.replace('_', '\\') %>\Api\Data\<%= name %>Interface;
+
+class <%= name %> extends \Magento\Framework\Model\AbstractModel implements <%= name %>Interface
 {
     /**
      * {@inheritdoc}
