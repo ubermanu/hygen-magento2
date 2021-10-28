@@ -6,7 +6,7 @@ module.exports = [
     },
     {
         type: 'input',
-        name: 'fqdn',
+        name: 'fqcn',
         message: 'Complete reference of the class? (ex: Magento\\Catalog\\Model\\Product)',
     }
 ]
