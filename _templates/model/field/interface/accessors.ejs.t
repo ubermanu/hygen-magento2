@@ -4,7 +4,7 @@ inject: true
 before: \}
 skip_if: public function .*<%= h.changeCase.pascal(name) %>\(\)
 ---
-
+<%= '' %>
     /**
      * @return string|null
      */

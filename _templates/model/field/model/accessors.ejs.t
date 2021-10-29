@@ -4,7 +4,7 @@ inject: true
 after: class [^]*    }
 skip_if: public function .*<%= h.changeCase.pascal(name) %>\(\)
 ---
-
+<%= '' %>
     /**
      * {@inheritdoc}
      */
