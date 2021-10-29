@@ -1,9 +1,9 @@
 ---
 to: app/code/<%= module.replace('_', '/') %>/view/frontend/layout/checkout_index_index.xml
+inject: true
+before: </body>
+skip_if: <item.*name="<%= name.toLowerCase() %>".*>\s*<item.*name="component".*>\s*<%= module %>\/js\/view\/payment\/<%= name.toLowerCase() %>
 ---
-<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
         <referenceBlock name="checkout.root">
             <arguments>
                 <argument name="jsLayout" xsi:type="array">
@@ -40,5 +40,3 @@ to: app/code/<%= module.replace('_', '/') %>/view/frontend/layout/checkout_index
                 </argument>
             </arguments>
         </referenceBlock>
-    </body>
-</page>
