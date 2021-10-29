@@ -14,4 +14,20 @@ class <%= name %> extends \Magento\Framework\Model\AbstractModel implements \<%=
     {
         $this->_init(\<%= module.replace('_', '\\') %>\Model\ResourceModel\<%= name %>::class);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getId()
+    {
+        return $this->getData(self::KEY_ID);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setId($id)
+    {
+        return $this->setData(self::KEY_ID, $id);
+    }
 }

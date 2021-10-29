@@ -10,7 +10,7 @@ skip_if: public function .*<%= h.changeCase.pascal(name) %>\(\)
      */
     public function get<%= h.changeCase.pascal(name) %>()
     {
-        return $this->getData(self::<%= h.changeCase.upper(h.changeCase.snake(name)) %>);
+        return $this->getData(self::KEY_<%= h.changeCase.snake(name).toUpperCase() %>);
     }
 
     /**
@@ -18,5 +18,5 @@ skip_if: public function .*<%= h.changeCase.pascal(name) %>\(\)
      */
     public function set<%= h.changeCase.pascal(name) %>($<%= h.changeCase.camel(name) %>)
     {
-        return $this->setData(self::<%= h.changeCase.upper(h.changeCase.snake(name)) %>, $<%= h.changeCase.camel(name) %>);
+        return $this->setData(self::KEY_<%= h.changeCase.snake(name).toUpperCase() %>, $<%= h.changeCase.camel(name) %>);
     }
