@@ -5,6 +5,10 @@ to: app/code/<%= module.replace('_', '/') %>/Api/<%= name %>RepositoryInterface.
 
 namespace <%= module.replace('_', '\\') %>\Api;
 
+use Magento\Framework\Exception\CouldNotDeleteException;
+use Magento\Framework\Exception\CouldNotSaveException;
+use Magento\Framework\Exception\NoSuchEntityException;
+
 interface <%= name %>RepositoryInterface
 {
     /**
