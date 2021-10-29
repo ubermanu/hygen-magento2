@@ -26,10 +26,11 @@ skip_if: public function <%= prefix %><%= h.changeCase.ucFirst(method) %>\(.*
     /**
      * @param \<%= name %> $subject
      * @param callable $proceed
+     * @param ...$args
      * @return mixed
      */
-    public function around<%= h.changeCase.ucFirst(method) %>(\<%= name %> $subject, callable $proceed)
+    public function around<%= h.changeCase.ucFirst(method) %>(\<%= name %> $subject, callable $proceed, ...$args)
     {
         // TODO: Your logic here
-        return $proceed();
+        return $proceed(...$args);
     }<% } %>
